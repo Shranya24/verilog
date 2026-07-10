@@ -2,7 +2,7 @@ module two_bit_comp (
     input [1:0] a,b, output gt,eq,lt
 );
 
-    wire a1bar,a0bar,b1bar,b0bar,w5,w6,w7,w8,w9,w10,w11,w12;
+    wire a1bar,a0bar,b1bar,b0bar,w5,w6,w7,w8,w9,w10,w11,w12,w13;
 
     not n1(a1bar,a[1]);
     not n2(a0bar,a[0]);
@@ -24,7 +24,8 @@ module two_bit_comp (
 //a=b
     xor x1(w11,a[0],b[0]);
     xor x2(w12,a[1],b[1]);
-    or o3(eq, w11,w12);
+    or o3(w13, w11,w12);
+    not n5(eq,w13);
 
 
 endmodule
